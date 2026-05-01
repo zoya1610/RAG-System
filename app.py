@@ -13,7 +13,17 @@ from loaders import uploaded_files_to_documents
 from prompts import SYSTEM_PROMPT
 from rag_singlestore import RagConfig, chunk_documents, format_sources, get_vectorstore
 
+
+from openai import OpenAI
+
+
+
 load_dotenv()
+
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
+
 
 st.set_page_config(page_title="DocChat Pro (SingleStore)", page_icon="🧠", layout="wide")
 
